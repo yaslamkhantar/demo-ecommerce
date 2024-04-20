@@ -9,6 +9,7 @@ import ys.elmoukhantar.sysecommerce.entities.Product;
 import ys.elmoukhantar.sysecommerce.repo.Categoriesdto;
 import ys.elmoukhantar.sysecommerce.repo.Productdto;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 @SpringBootApplication
@@ -29,7 +30,20 @@ public class SysEcommerceApplication {
                 tab[1]="PRODUCT2";
                 tab[2]="PRODUCT3";
                 int ii=0;
-                categoriesdto.findAll().forEach(ee->{
+
+             Categorie categorie1=categoriesdto.findByRef("mop");
+                Categorie categorie2=categoriesdto.findByRef("kop");
+                Categorie categorie3=categoriesdto.findByRef("ppa");
+
+                productdto.save(new Product(null,"XXX",30,categorie1));
+                productdto.save(new Product(null,"AAA",50,categorie2));
+                productdto.save(new Product(null,"PRO2",65,categorie3));
+
+
+
+               // Categorie categorie1=categoriesdto.findAll().get(0);
+            //    System.out.println("les valeurs est "+categorie1.toString());
+              /*  categoriesdto.findAll().forEach(ee->{
                     Stream.of("PRODUCT1","PRODUCT2","PRODUCT3").forEach(r->{
                         Product a=new Product();
                         a.setIdentifiant(null);
@@ -41,7 +55,7 @@ public class SysEcommerceApplication {
                     });
 
 
-                });
+                });*/
 
 
 
